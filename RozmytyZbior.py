@@ -11,23 +11,23 @@ class RozmytyZbior:
         m (float): Parametr określający rozmycie funkcji przynależności.
         x (float): tablica punktów, dla któreych obliczamy wartość funkcji przynależności.
         funkcja_przynaleznosci(): reprezentuje wartość funkcji przynależności dla punktu x.
-        
+
     Metody:
         __init__(self, x1, m, x2, x):
             Inicjalizuje obiekt zbioru rozmytego.
-            
+
         dodaj(self, inny_zbior):
             Dodaje dwa zbiory rozmyte.
-            
+
         odejmij(self, inny_zbior):
             Odejmuje dwa zbiory rozmyte.
-            
+
         pomnóż(self, liczba):
             Mnoży zbiór rozmyty przez liczbę.
-            
+
         potęgowanie(self, liczba):
             Podnosi zbiór rozmyty do potęgi.
-            
+
         wyswietl(self, subplot):
             Wyświetla zbiór rozmyty na wykresie.
 
@@ -46,7 +46,7 @@ class RozmytyZbior:
         self.m = m
         self.x = x
         self.funkcja_przynaleznosci = np.where((x >= x1) & (x <= m), (x - x1) / (m - x1), np.where((x > m) & (x <= x2), (x2 - x) / (x2 - m), 0))
-        
+
     def dodaj(self, inny_zbior):
         """
         Dodaje dwa zbiory rozmyte.
@@ -58,7 +58,7 @@ class RozmytyZbior:
         x1=(m-abs(self.m-self.x1)+(m-abs(inny_zbior.m-inny_zbior.x1)))/2
         x2=(m+abs(self.m-self.x2)+(m+abs(inny_zbior.m-inny_zbior.x2)))/2
         return RozmytyZbior(x1, m, x2, np.arange(x1-0.2, x2+0.2, 0.01))
-    
+
     def odejmij(self, inny_zbior):
         """
         Odejmuje dwa zbiory rozmyte.
@@ -70,7 +70,7 @@ class RozmytyZbior:
         x1=(m-abs(self.m-self.x1)+(m-abs(inny_zbior.m-inny_zbior.x1)))/2
         x2=(m+abs(self.m-self.x2)+(m+abs(inny_zbior.m-inny_zbior.x2)))/2
         return RozmytyZbior(x1, m, x2, np.arange(x1-0.2, x2+0.2, 0.01))
-    
+
     def pomnóż(self, liczba):
         """
         Mnoży zbiór rozmyty przez liczbę.
@@ -82,7 +82,7 @@ class RozmytyZbior:
         x1=(m-abs(self.m-self.x1))
         x2=(m+abs(self.m-self.x2))
         return RozmytyZbior(x1, m, x2, np.arange(x1-0.2, x2+0.2, 0.01))
-    
+
     def potęgowanie(self, liczba):
         """
         Podnosi zbiór rozmyty do potęgi.
@@ -94,7 +94,7 @@ class RozmytyZbior:
         x1=(m-abs(self.m-self.x1))
         x2=(m+abs(self.m-self.x2))
         return RozmytyZbior(x1, m, x2, np.arange(x1-0.2, x2+0.2, 0.01))
-    
+
     def wyswietl(self, subplot):
         """
         Wyświetla figure
@@ -103,16 +103,36 @@ class RozmytyZbior:
         """
         plt.subplot(subplot)
         plt.plot(self.x, self.funkcja_przynaleznosci, linewidth=1.5)
-     
+
     ### Inne warianty
-        
+
     def pomnoz_przez_zbior(self, inny_zbior):
+        """
+        Mnoży dwa zbiory rozmyte (pierwszy wariant).
+
+        Ta metoda implementuje mnożenie dwóch zbiorów rozmytych, gdzie nowy środek
+        jest iloczynem środków, a nowe punkty brzegowe są obliczane jako średnia
+        z odpowiednich odległości od środka.
+
+        :param inny_zbior: Inny zbiór rozmyty do pomnożenia.
+        :return: Nowy zbiór rozmyty będący wynikiem mnożenia.
+        """
         m = self.m * inny_zbior.m
         x1=(m-abs(self.m-self.x1)+(m-abs(inny_zbior.m-inny_zbior.x1)))/2
         x2=(m+abs(self.m-self.x2)+(m+abs(inny_zbior.m-inny_zbior.x2)))/2
         return RozmytyZbior(x1, m, x2,  np.arange(x1-0.2, x2+0.2, 0.01))
-    
+
     def pomnoz_przez_zbior2(self, inny_zbior):
+        """
+        Mnoży dwa zbiory rozmyte (drugi wariant).
+
+        Ta metoda implementuje alternatywny sposób mnożenia dwóch zbiorów rozmytych,
+        gdzie nowy środek jest iloczynem środków, a nowe punkty brzegowe są obliczane
+        na podstawie maksymalnych odległości od środka.
+
+        :param inny_zbior: Inny zbiór rozmyty do pomnożenia.
+        :return: Nowy zbiór rozmyty będący wynikiem mnożenia.
+        """
         m = self.m * inny_zbior.m
         x1 = m - max((self.m-self.x1)*inny_zbior.m,(inny_zbior.m-inny_zbior.x1)*self.m)
         x2 = m + max((self.x2-self.m)*inny_zbior.m,(inny_zbior.x2-inny_zbior.m)*self.m)
