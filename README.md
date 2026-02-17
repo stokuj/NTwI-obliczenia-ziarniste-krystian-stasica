@@ -21,9 +21,8 @@ Program umożliwia wykonywanie następujących operacji:
 
 ## Wymagania
 
-- Python 3.x
-- NumPy
-- Matplotlib
+- Python 3.10+
+- uv
 
 ## Instalacja
 
@@ -33,9 +32,9 @@ git clone https://github.com/username/NTwI-obliczenia-ziarniste-krystian-stasica
 cd NTwI-obliczenia-ziarniste-krystian-stasica
 ```
 
-2. Zainstaluj wymagane biblioteki:
+2. Zainstaluj zaleznosci:
 ```
-pip install numpy matplotlib
+uv sync
 ```
 
 ## Użycie
@@ -45,7 +44,7 @@ Program jest uruchamiany z linii poleceń z różnymi argumentami w zależności
 ### Wyświetlanie pojedynczej liczby rozmytej
 
 ```
-python app.py x1 m x2
+uv run python app.py x1 m x2
 ```
 
 Gdzie:
@@ -55,13 +54,13 @@ Gdzie:
 
 Przykład:
 ```
-python app.py 2 3 4
+uv run python app.py 2 3 4
 ```
 
 ### Mnożenie liczby rozmytej przez liczbę rzeczywistą lub potęgowanie
 
 ```
-python app.py x1 m x2 operator liczba
+uv run python app.py x1 m x2 operator liczba
 ```
 
 Gdzie:
@@ -71,14 +70,14 @@ Gdzie:
 
 Przykłady:
 ```
-python app.py 2 3 4 * 2
-python app.py 2 3 4 ^ 2
+uv run python app.py 2 3 4 * 2
+uv run python app.py 2 3 4 ^ 2
 ```
 
 ### Operacje na dwóch liczbach rozmytych (dodawanie, odejmowanie, mnożenie)
 
 ```
-python app.py x1_A m_A x2_A operator x1_B m_B x2_B
+uv run python app.py x1_A m_A x2_A operator x1_B m_B x2_B
 ```
 
 Gdzie:
@@ -88,9 +87,9 @@ Gdzie:
 
 Przykłady:
 ```
-python app.py 2 3 4 + 5 6 7
-python app.py 2 3 4 - 1 2 3
-python app.py 2 3 4 * 1 2 3
+uv run python app.py 2 3 4 + 5 6 7
+uv run python app.py 2 3 4 - 1 2 3
+uv run python app.py 2 3 4 * 1 2 3
 ```
 
 ### Łańcuch operacji na wielu liczbach rozmytych
@@ -98,12 +97,12 @@ python app.py 2 3 4 * 1 2 3
 Program obsługuje również łańcuch operacji na wielu liczbach rozmytych:
 
 ```
-python app.py x1_A m_A x2_A operator1 x1_B m_B x2_B operator2 x1_C m_C x2_C ...
+uv run python app.py x1_A m_A x2_A operator1 x1_B m_B x2_B operator2 x1_C m_C x2_C ...
 ```
 
 Przykład:
 ```
-python app.py 2 3 4 + 5 6 7 - 1 2 3
+uv run python app.py 2 3 4 + 5 6 7 - 1 2 3
 ```
 
 ## Teoria zbiorów rozmytych
@@ -141,3 +140,7 @@ W projekcie zaimplementowano następujące operacje:
 ## Autor
 
 Krystian Stasica
+
+## Licencja
+
+This project is intended for educational use only. Licensed under the MIT License. See `LICENSE` for details.
