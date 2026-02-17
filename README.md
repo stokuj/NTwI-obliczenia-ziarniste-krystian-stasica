@@ -24,20 +24,12 @@ Program umozliwia wykonywanie operacji:
 - Python 3.10+
 - uv
 
-## Instalacja
+## Instalacja & Uzycie
 
-1. Sklonuj repozytorium:
-```bash
-git clone https://github.com/username/NTwI-obliczenia-ziarniste-krystian-stasica.git
-cd NTwI-obliczenia-ziarniste-krystian-stasica
-```
-
-2. Zainstaluj zaleznosci:
+Zainstaluj zaleznosci:
 ```bash
 uv sync
 ```
-
-## Uzycie
 
 ### Wyswietlanie pojedynczej liczby rozmytej
 
