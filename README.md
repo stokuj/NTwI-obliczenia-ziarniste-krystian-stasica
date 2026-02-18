@@ -1,92 +1,89 @@
-﻿# Obliczenia na Liczbach Rozmytych (Fuzzy Numbers)
+# Fuzzy Number Arithmetic
 
-Projekt "odleglosc rozmyta granul" z przedmiotu Nowe Technologie w Informatyce.
+A "fuzzy granule distance" project from the *New Technologies in Computer Science* course.
 
-## Opis projektu
+## Project Description
 
-Program implementuje operacje na liczbach rozmytych (fuzzy numbers), reprezentowanych jako trojkatne funkcje przynaleznosci.
+The program implements arithmetic operations on fuzzy numbers represented as triangular membership functions.
 
-W projekcie liczba rozmyta jest reprezentowana przez trzy parametry:
-- **x1** (lewy punkt) - dolna granica nosnika funkcji przynaleznosci
-- **m** (srodek) - wartosc z maksymalna przynaleznoscia (rowna 1)
-- **x2** (prawy punkt) - gorna granica nosnika funkcji przynaleznosci
+Each fuzzy number is defined by three parameters:
 
-Program umozliwia wykonywanie operacji:
-- wyswietlanie pojedynczej liczby rozmytej,
-- mnozenie liczby rozmytej przez liczbe rzeczywista,
-- potegowanie liczby rozmytej,
-- dodawanie dwoch liczb rozmytych,
-- odejmowanie dwoch liczb rozmytych,
-- mnozenie dwoch liczb rozmytych.
+- **x1** (left point) — lower bound of the membership function's support
+- **m** (center) — value with maximum membership degree (equal to 1)
+- **x2** (right point) — upper bound of the membership function's support
 
-## Wymagania
+Supported operations:
+
+- display a single fuzzy number
+- multiply a fuzzy number by a real scalar
+- raise a fuzzy number to a power
+- add two fuzzy numbers
+- subtract two fuzzy numbers
+- multiply two fuzzy numbers
+
+## Requirements
 
 - Python 3.10+
 - uv
 
-## Instalacja & Uzycie
+## Installation & Usage
 
-Zainstaluj zaleznosci:
+Install dependencies:
 ```bash
 uv sync
 ```
 
-### Wyswietlanie pojedynczej liczby rozmytej
-
+### Display a single fuzzy number
 ```bash
 uv run python app.py x1 m x2
 ```
 
-Przyklad:
+Example:
 ```bash
 uv run python app.py 2 3 4
 ```
 
-### Mnozenie przez liczbe rzeczywista lub potegowanie
-
+### Scalar multiplication or exponentiation
 ```bash
-uv run python app.py x1 m x2 operator liczba
+uv run python app.py x1 m x2 operator value
 ```
 
-Przyklady:
+Examples:
 ```bash
 uv run python app.py 2 3 4 * 2
 uv run python app.py 2 3 4 ^ 2
 ```
 
-### Operacje na dwoch liczbach rozmytych
-
+### Operations on two fuzzy numbers
 ```bash
 uv run python app.py x1_A m_A x2_A operator x1_B m_B x2_B
 ```
 
-Przyklady:
+Examples:
 ```bash
 uv run python app.py 2 3 4 + 5 6 7
 uv run python app.py 2 3 4 - 1 2 3
 uv run python app.py 2 3 4 * 1 2 3
 ```
 
-### Lancuch operacji na wielu liczbach rozmytych
-
+### Chained operations on multiple fuzzy numbers
 ```bash
 uv run python app.py x1_A m_A x2_A operator1 x1_B m_B x2_B operator2 x1_C m_C x2_C ...
 ```
 
-Przyklad:
+Example:
 ```bash
 uv run python app.py 2 3 4 + 5 6 7 - 1 2 3
 ```
 
-## Teoria zbiorow rozmytych
+## Fuzzy Set Theory
 
-Zbior rozmyty to zbior, w ktorym kazdy element nalezy do zbioru z pewnym stopniem przynaleznosci z przedzialu [0, 1].
-W projekcie uzyta jest trojkatna funkcja przynaleznosci okreslona przez parametry `x1`, `m`, `x2`.
+A fuzzy set is a set in which every element belongs to the set with a membership degree in the range [0, 1]. This project uses a triangular membership function defined by the parameters `x1`, `m`, and `x2`.
 
-## Autor
+## Author
 
 Krystian Stasica
 
-## Licencja
+## License
 
-Projekt jest udostepniony na licencji MIT. Zobacz plik `LICENSE`.
+This project is released under the MIT License. See the `LICENSE` file.
