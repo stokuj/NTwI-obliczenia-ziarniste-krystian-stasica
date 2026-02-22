@@ -1,10 +1,11 @@
 # Fuzzy Number Arithmetic
 
 A "fuzzy granule distance" project from the *New Technologies in Computer Science* course.
+The idea of the project is to implement arithmetic operations on fuzzy numbers represented as triangular membership functions.
 
-## Project Description
+## Fuzzy Set Theory
 
-The program implements arithmetic operations on fuzzy numbers represented as triangular membership functions.
+A fuzzy set is a set in which every element belongs to the set with a membership degree in the range [0, 1]. This project uses a triangular membership function defined by the parameters `x1`, `m`, and `x2`.
 
 Each fuzzy number is defined by three parameters:
 
@@ -75,14 +76,6 @@ Example:
 ```bash
 uv run python app.py 2 3 4 + 5 6 7 - 1 2 3
 ```
-
-## Fuzzy Set Theory
-
-A fuzzy set is a set in which every element belongs to the set with a membership degree in the range [0, 1]. This project uses a triangular membership function defined by the parameters `x1`, `m`, and `x2`.
-
-## Author
-
-Krystian Stasica
 
 ## License
 
